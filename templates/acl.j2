@@ -7,6 +7,9 @@
 {% set type = item.type | default(eos_acl_default_type) %}
 {% set seqno = item.seqno | default(0) %}
 {% set action = item.action %}
+{% set protocol = item.protocol | default('') %}
+{% set src_port = item.src_port | default('') %}
+{% set dst_port = item.dst_port | default('') %}
 {% set srcaddr = item.srcaddr %}
 {% set srcprefixlen = item.srcprefixlen | default(eos_acl_default_srcprefixlen) %}
 {% set log = item.log | default(eos_acl_default_log) %}
@@ -107,3 +110,4 @@ ip access-list {{ type }} {{ name }}
 
    {% endif %} {# do_exit #}
 {% endif %}
+
